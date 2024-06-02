@@ -1,0 +1,28 @@
+.couleur-item {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.couleur-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.couleur-item:hover .couleur-image {
+  transform: scale(1.1);
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.couleur-item:hover .overlay {
+  opacity: 1;
+  visibility: visible;
+}

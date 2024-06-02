@@ -1,0 +1,16 @@
+<div class="container mt-5" *ngIf="product">
+  <div class="card mb-4" style="width: 18rem;">
+    <img [src]="'http://127.0.0.1:3000/image/' + product.image" class="card-img-top" alt="{{ product.name }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+      <p class="card-text">Prix: {{ product.prix }}</p>
+      <div class="form-group">
+        <label for="quantite">Quantité:</label>
+        <input type="number" class="form-control" id="quantite" name="quantite" [(ngModel)]="quantite" min="1" required>
+      </div>
+      <!-- Bouton pour passer la commande -->
+      <button class="btn btn-primary" (click)="passerCommande()">Passer la commande</button>
+    </div>
+  </div>
+</div>

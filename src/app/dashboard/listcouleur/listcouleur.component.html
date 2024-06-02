@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <div class="couleurs-container d-flex flex-wrap justify-content-center">
+        <div *ngFor="let couleur of couleurs" class="couleur-item position-relative m-3" 
+             (mouseenter)="couleur.showButtons = true" 
+             (mouseleave)="couleur.showButtons = false">
+          <img class="couleur-image img-fluid rounded" [src]="'http://127.0.0.1:3000/image/' + couleur.image" alt="Couleur">
+          <div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" *ngIf="couleur.showButtons">
+            <button [routerLink]="['/dashboard/detailcouleur', couleur._id]" class="btn btn-primary">Voir Détails</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

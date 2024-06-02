@@ -1,0 +1,20 @@
+<!-- historiquecommande.component.html -->
+<div *ngFor="let commande of commandes">
+    <div class="commande-card">
+        <h3>Commande {{ commande._id }}</h3>
+        <div class="commande-info">
+            <p><strong>Quantité:</strong> {{ commande.quantitec }}</p>
+            <p><strong>Total:</strong> {{ commande.total }}€</p>
+            <p><strong>Date de commande:</strong> {{ commande.Date | date:'short' }}</p>
+            <p><strong>Date de livraison:</strong> {{ commande.dateLivraison ? (commande.dateLivraison | date:'short') : 'Pas encore livrée' }}</p>
+            <p><strong>Status:</strong> {{ commande.livree ? 'Livrée' : 'Non livrée' }}</p>
+            <p><strong>Acceptée:</strong> {{ commande.accepte ? 'Oui' : 'Non' }}</p>
+        </div>
+        
+        <!-- Bouton d'annulation de commande -->
+        <button *ngIf="!commande.livree && !commande.accepte" (click)="annulerCommande(commande.id)" class="btn-annuler-commande btn-danger">
+            Annuler la commande
+        </button>
+    </div>
+    <hr>
+</div>

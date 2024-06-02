@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div style="display: flex; justify-content: space-between;">
+    <h2>Liste des Produits</h2>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-4" *ngFor="let item of produit">
+      <div class="card mb-4" style="width: 18rem;">
+        <img [src]="'http://127.0.0.1:3000/image/' + item.image" class="card-img-top" alt="{{ item.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text">{{ item.description }}</p>
+          <p class="card-text">Prix: {{ item.prix }}</p>
+          <p class="card-text">Catégorie: {{ item.categorie.name }}</p>
+          <div class="d-flex justify-content-between">
+            <a [routerLink]="['/dashboard/product', item._id]" class="btn btn-primary">Voir Détails</a>
+            <i 
+              class="fas" 
+              [ngClass]="item.isFavori ? 'fa-heart' : 'fa-heart-broken'"
+              (click)="toggleFavori(item)">
+            </i>
+            <i 
+              class="fas" 
+              [ngClass]="item.isDansPanier ? 'fa-shopping-cart' : 'fa-cart-plus'"
+              (click)="togglePanier(item)">
+            </i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
